@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn
+seaborn.set(style='darkgrid')
 
 # Consider a linear function y = 3x + 1. Given two points, find the function's slope
 
@@ -21,3 +23,32 @@ y = -1 * (x ** 2) + x * 3 - 1
 # Use pyplot.plot() to generate a line plot with x on the x-axis and y on the y-axis.
 plt.plot(x, y)
 plt.show()
+
+
+def draw_secant(x_values):
+    x = np.linspace(-20, 30, 100)
+    y = -1 * (x ** 2) + x * 3 - 1
+    plt.plot(x, y)
+    plt.show()
+
+    
+def draw_secant(x_values):
+    x = np.linspace(-20, 30, 100)
+    y = -1 * (x ** 2) + x * 3 - 1
+    plt.plot(x, y)
+
+    x_0 = x_values[0]
+    x_1 = x_values[1]
+    y_0 = -1 * (x_0 ** 2) + x_0 * 3 - 1
+    y_1 = -1 * (x_1 ** 2) + x_1 * 3 - 1
+    m = (y_1 - y_0) / (x_1 - x_0)
+    b = y_1 - m * x_1
+
+    y_secant = x * m + b
+    plt.plot(x, y_secant, c='green')
+    plt.show()
+
+
+draw_secant([3, 5])
+draw_secant([3, 10])
+draw_secant([3, 15])
